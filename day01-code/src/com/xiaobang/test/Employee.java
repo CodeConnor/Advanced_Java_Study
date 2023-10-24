@@ -68,9 +68,8 @@ public class Employee {
     /**
      * 成员方法
      */
-    public String work() {
-
-        return "姓名为" + getName() + ",年龄为" + getAge() + ",工资为" + getSalary();
+    public void work() {
+        System.out.println("working...");
     }
 
 }

@@ -1,6 +1,6 @@
 package com.xiaobang.test;
 
-public class Coder extends Employee{
+public class Coder extends Employee {
     public Coder() {
     }
 
@@ -11,8 +11,11 @@ public class Coder extends Employee{
     /**
      * 成员方法
      */
-    public String work() {
-        String info = super.work();
-        return info + "的程序员正在编写代码";
+    public void work() {
+        System.out.println("姓名为" + super.getName()
+                + ", 年龄为" + super.getAge()
+                + ", 工资为" + super.getSalary()
+                + "的程序员正在写代码"
+        );
     }
 }

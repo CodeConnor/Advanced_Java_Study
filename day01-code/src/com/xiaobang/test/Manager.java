@@ -23,8 +23,10 @@ public class Manager extends Employee{
     /**
      * 成员方法
      */
-    public String work() {
-        String info = super.work();
-        return info + ",奖金为" + bonus + "的项目经理正在分配任务...";
+    public void work() {
+        System.out.println("姓名为" + super.getName()
+                + ", 年龄为" + super.getAge()
+                + ", 工资为" + super.getSalary()
+                + ", 奖金为" + bonus + "的项目经理正在分配任务...");
     }
 }
