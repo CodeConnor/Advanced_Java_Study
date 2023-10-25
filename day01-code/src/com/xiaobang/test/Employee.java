@@ -1,6 +1,6 @@
 package com.xiaobang.test;
 
-public class Employee {
+abstract public class Employee {
 
     private String name;
     private int age;
@@ -68,8 +68,6 @@ public class Employee {
     /**
      * 成员方法
      */
-    public void work() {
-        System.out.println("working...");
-    }
+    public abstract void work();
 
 }
