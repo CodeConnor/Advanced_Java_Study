@@ -11,23 +11,22 @@ public class Test {
         Payment p = null;
 
         // 支付方式
-        System.out.println("请输入支付金额:");
-        double userMoney = sc.nextDouble();
         switch (choice) {
             case 1:
                 p = new PlatformPaymentImpl();
-                p.pay(userMoney);
                 break;
             case 2:
                 p = new BankcardPaymentImpl();
-                p.pay(userMoney);
                 break;
             case 3:
                 p = new CreditCardPaymentImpl();
-                p.pay(userMoney);
                 break;
         }
 
+        // 输入支付金额进行支付
+        System.out.println("请输入支付金额:");
+        double userMoney = sc.nextDouble();
+        p.pay(userMoney);
 
     }
 }
