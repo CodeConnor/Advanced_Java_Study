@@ -7,6 +7,25 @@ public class InnerTest {
         Outer.Inner oi = new Outer().new Inner();
         System.out.println(oi.num);
         oi.show();
+
+        MyOuter.MyInner mm = new MyOuter().new MyInner();
+        mm.method();
+    }
+}
+
+class MyOuter {
+    int num = 10;
+
+    class MyInner {
+        int num = 20;
+
+        public void method() {
+            int num = 30;
+
+            System.out.println(num);  // 30
+            System.out.println(this.num);  // 20
+            System.out.println(MyOuter.this.num);  // 10
+        }
     }
 }
 
