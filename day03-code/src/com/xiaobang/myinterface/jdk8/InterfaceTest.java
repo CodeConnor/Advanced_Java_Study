@@ -4,11 +4,17 @@ public class InterfaceTest {
     public static void main(String[] args) {
         AInterImpl A = new AInterImpl();
         A.method();
+
+        AAA.function();
     }
 }
 interface AAA {
     default void method() {
         System.out.println("AAA...method...");
+    }
+
+    static void function() {
+        System.out.println("AAA...function...");
     }
 }
 
