@@ -14,6 +14,9 @@ public class MainFrame extends JFrame implements KeyListener {
             {9, 10, 11, 12},
             {13, 14, 15, 0}
     };
+    // 定义变量存储0号元素的行和列的索引
+    int row;
+    int col;
 
     public MainFrame() {
         // 监听键盘输入
@@ -43,7 +46,7 @@ public class MainFrame extends JFrame implements KeyListener {
     }
 
     /**
-     * 初始化数据(打乱方块, 打乱数组元素)
+     * 初始化数据(打乱方块, 打乱数组元素), 找出0号元素索引
      */
     public void initData() {
         Random r = new Random();
@@ -58,6 +61,15 @@ public class MainFrame extends JFrame implements KeyListener {
                 int temp = data[i][j];
                 data[i][j] = data[randomX][randomY];
                 data[randomX][randomY] = temp;
+            }
+        }
+
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                if (data[i][j] == 0) {
+                    row = i;
+                    col = j;
+                }
             }
         }
     }
