@@ -79,7 +79,7 @@ public class MainFrame extends JFrame implements KeyListener {
      */
     public void paintView() {
         // 绘制方块前清除所有方块
-        super.getContentPane().removeAll();
+        getContentPane().removeAll();
         // 使用循环加载界面中的方块
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
@@ -99,7 +99,7 @@ public class MainFrame extends JFrame implements KeyListener {
         getContentPane().add(background);
 
         // 重新绘制界面
-        super.getContentPane().repaint();
+        getContentPane().repaint();
     }
 
 
@@ -120,21 +120,38 @@ public class MainFrame extends JFrame implements KeyListener {
      */
     private  void moveCube(int keyCode) {
         if (keyCode == 37) {
+            // 判断移动后是否索引越界
+            if (col == 0){
+                return;
+            }
+
             int temp = data[row][col];
             data[row][col] = data[row][col - 1];
             data[row][col - 1] = temp;
             col--;
         } else if (keyCode == 38) {
+            if (row == 0) {
+                return;
+            }
+
             int temp = data[row][col];
             data[row][col] = data[row - 1][col];
             data[row - 1][col] = temp;
             row--;
         } else if (keyCode == 39) {
+            if (col == 3) {
+                return;
+            }
+
             int temp = data[row][col];
             data[row][col] = data[row][col + 1];
             data[row][col + 1] = temp;
             col++;
         } else if (keyCode == 40) {
+            if (row == 3) {
+                return;
+            }
+
             int temp = data[row][col];
             data[row][col] = data[row + 1][col];
             data[row + 1][col] = temp;
