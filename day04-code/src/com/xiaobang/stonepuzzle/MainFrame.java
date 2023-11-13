@@ -14,6 +14,13 @@ public class MainFrame extends JFrame implements KeyListener {
             {9, 10, 11, 12},
             {13, 14, 15, 0}
     };
+    // 定义数组, 用于判断是否胜利
+    int[][] win = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {13, 14, 15, 0}
+    };
     // 定义变量存储0号元素的行和列的索引
     int row;
     int col;
@@ -80,6 +87,16 @@ public class MainFrame extends JFrame implements KeyListener {
     public void paintView() {
         // 绘制方块前清除所有方块
         getContentPane().removeAll();
+
+        // 判断是否胜利并绘制胜利界面
+        if (victory()) {
+            JLabel win = new JLabel(new ImageIcon(
+                    "D:\\JavaProject\\Advanced-Codes\\day04-code\\src\\com\\xiaobang\\stonepuzzle\\image\\win.png"
+            ));
+            win.setBounds(124, 230, 266, 88);
+            getContentPane().add(win);
+        }
+
         // 使用循环加载界面中的方块
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
@@ -119,6 +136,12 @@ public class MainFrame extends JFrame implements KeyListener {
      * 此方法用于移动方块的业务
      */
     private  void moveCube(int keyCode) {
+        // 判断是否游戏胜利, 胜利后不允许再移动方块
+        if (victory()) {
+            return;
+        }
+
+        // 通过获取按键的值, 判断移动方向
         if (keyCode == 37) {
             // 判断移动后是否索引越界
             if (col == 0){
@@ -166,6 +189,17 @@ public class MainFrame extends JFrame implements KeyListener {
                     {13, 14, 15, 0}
             };
         }
+    }
+
+    public boolean victory(){
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                if (data[i][j] != win[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     // -------------------------------------------------
