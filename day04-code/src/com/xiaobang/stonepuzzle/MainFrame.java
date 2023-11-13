@@ -78,6 +78,8 @@ public class MainFrame extends JFrame implements KeyListener {
      * 绘制游戏界面
      */
     public void paintView() {
+        // 绘制方块前清除所有方块
+        super.getContentPane().removeAll();
         // 使用循环加载界面中的方块
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
@@ -95,6 +97,9 @@ public class MainFrame extends JFrame implements KeyListener {
         ));
         background.setBounds(26, 30, 450, 484);
         getContentPane().add(background);
+
+        // 重新绘制界面
+        super.getContentPane().repaint();
     }
 
 
@@ -105,21 +110,44 @@ public class MainFrame extends JFrame implements KeyListener {
         int keyCode = e.getKeyCode();
         // 移动方块
         moveCube(keyCode);
+        // 绘制界面
+        paintView();
 
     }
 
     /**
      * 此方法用于移动方块的业务
      */
-    private static void moveCube(int keyCode) {
+    private  void moveCube(int keyCode) {
         if (keyCode == 37) {
-            System.out.println("左移动");
+            int temp = data[row][col];
+            data[row][col] = data[row][col - 1];
+            data[row][col - 1] = temp;
+            col--;
         } else if (keyCode == 38) {
-            System.out.println("上移动");
+            int temp = data[row][col];
+            data[row][col] = data[row - 1][col];
+            data[row - 1][col] = temp;
+            row--;
         } else if (keyCode == 39) {
-            System.out.println("右移动");
+            int temp = data[row][col];
+            data[row][col] = data[row][col + 1];
+            data[row][col + 1] = temp;
+            col++;
         } else if (keyCode == 40) {
-            System.out.println("下移动");
+            int temp = data[row][col];
+            data[row][col] = data[row + 1][col];
+            data[row + 1][col] = temp;
+            row++;
+        } else if (keyCode == 90) {
+            // 恢复方块
+            // 覆盖数组时需要使用完整格式不能省略new
+            data = new int[][]{
+                    {1, 2, 3, 4},
+                    {5, 6, 7, 8},
+                    {9, 10, 11, 12},
+                    {13, 14, 15, 0}
+            };
         }
     }
 
