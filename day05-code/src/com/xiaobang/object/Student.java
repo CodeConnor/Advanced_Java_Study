@@ -14,6 +14,9 @@ public class Student {
     }
 
     // 重写equals方法
+
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof Student) {
             // 将obj强制转换为Student类, 以便于调用obj的成员
