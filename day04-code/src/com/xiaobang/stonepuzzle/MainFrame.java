@@ -215,6 +215,9 @@ public class MainFrame extends JFrame implements KeyListener {
         }
     }
 
+    /**
+     * 此方法用于判断游戏是否胜利, 胜利返回true
+     */
     public boolean victory() {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
