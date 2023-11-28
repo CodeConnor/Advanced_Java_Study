@@ -35,5 +35,8 @@ public class PSOtherDemo {
             System.out.println("数据插入失败");
         }
 
+        // 释放资源
+        statement.close();
+        connection.close();
     }
 }
