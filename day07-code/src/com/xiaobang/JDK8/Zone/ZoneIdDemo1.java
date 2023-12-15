@@ -1,4 +1,4 @@
-package com.xiaobang.JDK8.ZoneId;
+package com.xiaobang.JDK8.Zone;
 
 import java.time.Instant;
 import java.time.ZoneId;
