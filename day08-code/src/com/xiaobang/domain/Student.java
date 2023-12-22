@@ -41,8 +41,12 @@ public class Student {
      * 设置
      * @param age
      */
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int age) throws Exception{
+        if (age >= 0 && age <= 120) {
+            this.age = age;
+        } else {
+            throw new Exception("Age must be between 0 and 120");
+        }
     }
 
     public String toString() {
