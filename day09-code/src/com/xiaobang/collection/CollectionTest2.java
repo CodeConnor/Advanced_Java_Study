@@ -20,7 +20,8 @@ public class CollectionTest2 {
 
         // 遍历
         while (it.hasNext()) {
-            System.out.println(it.next());
+            Student stu = it.next();
+            System.out.println(stu.getName() + "---" + stu.getAge());
         }
     }
 }
