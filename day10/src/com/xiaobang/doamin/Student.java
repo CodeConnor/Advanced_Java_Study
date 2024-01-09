@@ -1,6 +1,6 @@
 package com.xiaobang.doamin;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 
     private String name;
     private int age;
@@ -16,11 +16,13 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student o) {
-        return -1;
+        System.out.println(this.age + "-----" + o.age);
+        return this.age - o.age;
     }
 
     /**
      * 获取
+     *
      * @return name
      */
     public String getName() {
@@ -29,6 +31,7 @@ public class Student implements Comparable<Student>{
 
     /**
      * 设置
+     *
      * @param name
      */
     public void setName(String name) {
@@ -37,6 +40,7 @@ public class Student implements Comparable<Student>{
 
     /**
      * 获取
+     *
      * @return age
      */
     public int getAge() {
@@ -45,6 +49,7 @@ public class Student implements Comparable<Student>{
 
     /**
      * 设置
+     *
      * @param age
      */
     public void setAge(int age) {
