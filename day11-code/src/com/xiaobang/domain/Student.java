@@ -1,5 +1,7 @@
 package com.xiaobang.domain;
 
+import java.util.Objects;
+
 public class Student {
     private String name;
     private int age;
@@ -11,6 +13,19 @@ public class Student {
     public Student(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Student student = (Student) object;
+        return age == student.age && Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return age + name.hashCode();
     }
 
     /**
